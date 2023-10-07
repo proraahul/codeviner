@@ -1,0 +1,63 @@
+<!-- implement a simple image slider that allows users to cycle through a set of images with previous and next buttons -->
+
+<!DOCTYPE html>
+<html lang="en">
+j
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+</head>
+
+<body>
+    <div id="slider">
+        <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+            alt="Image 1">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+            alt="Image 2">
+        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+            alt="Image 3">
+        <img src="https://images.unsplash.com/photo-1565958011703-44f9829ba187?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+            alt="Image 4">
+        <img src="https://images.unsplash.com/photo-1482049016688-2d3e1b311543?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGZvb2R8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
+            alt="Image 5">
+    </div>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+
+    <script>
+        let slider = document.getElementById("slider");
+        let images = slider.getElementsByTagName("img");
+        let currentImage = 0;
+
+
+
+        function showImage(image) {
+            for (let i = 0; i < images.length; i++) {
+                images[i].style.display = "none";
+            }
+            images[image].style.display = "block";
+        }
+
+        document.getElementById("prev").addEventListener("click", function () {
+            currentImage--;
+            if (currentImage < 0) {
+                currentImage = images.length - 1;
+            }
+            showImage(currentImage);
+        });
+
+        document.getElementById("next").addEventListener("click", function () {
+            currentImage++;
+            if (currentImage >= images.length) {
+                currentImage = 0;
+            }
+            showImage(currentImage);
+        });
+
+        showImage(currentImage);
+    </script>
+</body>
+
+</html>

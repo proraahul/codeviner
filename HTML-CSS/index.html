@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codeviner</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <nav id="navbar">
+            <ul class="nav-links">
+                <li><a href="home">Home</a></li>
+                <li><a href="about">About US</a></li>
+                <li><a href="servies">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hamberg Nav -->
+        <nav id='hamburger-nav'>
+            <div class="hamburger-menu">
+                <div class="hamburger-icon" onClick={toggleMenu()}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div class="menu-links nav-links">
+                    <li><a href="#home" onClick={toggleMenu}>Home</a></li>
+                    <li><a href="#about" onClick={toggleMenu}>About</a></li>
+                    <li><a href="#services" onClick={toggleMenu}>Services</a></li>
+                    <li><a href="#contact" onclick={toggleMenu}>Contact</a></li>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="hero-section">
+            <h3>Feature Of Services</h3>
+            <ul class="features">
+                <li><a href="#design"></a> Design</li>
+                <li><a href="#development"></a> Development</li>
+                <li><a href="#deploy"></a> Deploy</li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-body">
+            <div id="contact-form">
+                <h3 class="contact-heading">Contact us</h3>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="Name" class="contact-label">Your Name</label>
+                        <div class="input-group">
+                            <input type="text" id="Name" name="Name" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Email" class="contact-label">Your Email</label>
+                        <div class="input-group">
+                            <input type="email" id="Email" name="Email" class="form-control" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="Message" class="contact-label">Your Message</label>
+                        <div class="input-group">
+                            <textarea id="Message" name="Message" class="form-control" rows="6" maxlength="3000"
+                                required></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" id="contact-button"
+                            class="contact-btn contact-btn-primary contact-btn-lg contact-btn-block">Send
+                            Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('.menu-links');
+        const icon = document.querySelector('.hamburger-icon');
+        menu.classList.toggle('open');
+        icon.classList.toggle('open');
+    }
+</script>
+
+</html>
